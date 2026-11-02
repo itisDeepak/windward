@@ -1,3 +1,15 @@
+[project]
+name = "windward"
+version = "1.0.0"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi==0.162.0",
+  "httpx==0.28.1",
+  "pydantic==2.14.1",
+  "tzdata==2026.5",
+  "uvicorn==0.54.0",
+]
+
 [tool.vercel]
 entrypoint = "main:app"
 
