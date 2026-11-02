@@ -88,6 +88,23 @@ npx vercel --prod
 
 Or import the GitHub repo in the Vercel dashboard. Keep the root directory at the repo root.
 
+## Architecture
+
+```mermaid
+flowchart LR
+  W["Elexon WINDFOR<br/>wind forecasts"] --> A["acquire.py<br/>one-off download"]
+  F["Elexon FUELHH (WIND)<br/>actual generation"] --> A
+  A --> S[("snapshot.json<br/>in the repo")]
+  subgraph APP["Vercel function / Docker container"]
+    S --> D["domain.py<br/>forecast selection and metrics"]
+    D --> API["FastAPI<br/>/api/analysis /api/export /api/health"]
+    API --> UI["React dashboard<br/>built files served by FastAPI"]
+  end
+  B["Browser"] <--> UI
+```
+
+The Elexon data is downloaded once and committed, so the running app never calls Elexon. The same FastAPI app serves the API and the built React files, which is why no CORS setup is needed.
+
 ## Project layout
 
 ```text
