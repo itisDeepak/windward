@@ -10,7 +10,7 @@ It only uses two Elexon datasets (national level, Great Britain):
 Scope is purchase decisions made in January 2026 (1-31 Jan), which cover deliveries from 2 Jan to 1 Feb 2026.
 
 - Live app: https://windward-theta.vercel.app/
-- Demo video: _add YouTube URL_
+- Demo video: https://youtu.be/70yXD5rXVeE
 
 ## What it does
 
