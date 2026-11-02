@@ -1,0 +1,28 @@
+[project]
+name = "wind-forecast-analysis"
+version = "1.0.0"
+description = "Reproducible Elexon day-ahead wind forecast analysis"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "httpx>=0.28,<1",
+  "pydantic>=2.10,<3",
+  "tzdata>=2025.1",
+  "uvicorn>=0.34,<1",
+]
+
+[dependency-groups]
+dev = [
+  "ipykernel>=6.29",
+  "ipywidgets>=8.1",
+  "pytest>=8.3",
+  "ruff>=0.11",
+  "tqdm>=4.67",
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
